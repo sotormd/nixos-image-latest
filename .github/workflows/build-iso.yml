@@ -1,0 +1,44 @@
+name: Build GNOME ISO
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v24
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Generate timestamp
+        id: ts
+        run: echo "ts=$(date +%s)" >> $GITHUB_OUTPUT
+
+      # -----------------------------------------------------
+      # Build ISO
+      # -----------------------------------------------------
+      - name: Build ISO
+        run: |
+          nix run nixpkgs#nixos-generators -- \
+            --format iso \
+            --flake github:sotormd/nixos-image-latest#image \
+            -o image
+
+          SRC=$(echo image/iso/*.iso)
+          DST="nixos-latest-${{ steps.ts.outputs.ts }}.iso"
+          cp "$SRC" "$DST"
+
+      # -----------------------------------------------------
+      # Upload Artifacts
+      # -----------------------------------------------------
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: nixos-image-latest
+          path: nixos-latest-${{ steps.ts.outputs.ts }}.iso
