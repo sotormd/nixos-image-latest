@@ -2,7 +2,7 @@
 
 [![Build ISO](https://github.com/sotormd/nixos-image-latest/actions/workflows/build-iso.yml/badge.svg)](https://github.com/sotormd/nixos-image-latest/actions/workflows/build-iso.yml)
 
-NixOS installer image with the latest kernel `pkgs.linuxPackages_latest`)
+NixOS installer image with the latest kernel `pkgs.linuxPackages_latest`
 
 # Usage
 
