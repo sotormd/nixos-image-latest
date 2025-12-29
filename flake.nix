@@ -6,7 +6,7 @@
   outputs =
     { nixpkgs, ... }@inputs:
     {
-      image = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.image = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [ ./image.nix ];
       };
