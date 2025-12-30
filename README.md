@@ -6,6 +6,9 @@ NixOS installer image with the latest kernel `pkgs.linuxPackages_latest`
 
 # Usage
 
+Download the ISO from Github Actions Build Artifacts
+[here](https://github.com/sotormd/nixos-image-latest/actions/workflows/build-iso.yml)
+
 To build yourself:
 
 ```bash
