@@ -4,6 +4,9 @@
 
 NixOS installer image with the latest kernel `pkgs.linuxPackages_latest`
 
+> ⚠️ **Filesystem support is limited**\
+> Only a small number of filesystems are included. **ZFS is not available**.
+
 # Usage
 
 Download the ISO from Github Actions Build Artifacts
