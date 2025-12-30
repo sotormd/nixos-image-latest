@@ -1,6 +1,6 @@
 # nixos-image-latest
 
-[![Build ISO](https://github.com/sotormd/nixos-image-latest/actions/workflows/build-iso.yml/badge.svg)](https://github.com/sotormd/nixos-image-latest/actions/workflows/build-iso.yml)
+[![Build ISO](https://img.shields.io/github/actions/workflow/status/sotormd/nixos-image-latest/build-iso.yml?style=for-the-badge&label=Build%20ISO)](https://github.com/sotormd/nixos-image-latest/actions/workflows/build-iso.yml)
 
 NixOS installer image with the latest kernel `pkgs.linuxPackages_latest`
 
